@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mystery Word Game</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <div>
+        <h1 class="title">Mystery Word Game</h1>
+        <a href="/newgame" class="newgame">New Game</a>
+    </div>  
+
+    <div class="container">
+        <div class="main-content">
+            <form action="/word/guess" method="POST">
+                <div class="letter-blanks">
+                    <h3>{{#displayArray}}<span class="letterGuess"> {{.}} </span>{{/displayArray}}</h3>
+                </div>
+                <input type="text" name="letterGuess" placeholder="Guess A Letter" maxlength=1 pattern="[a-z]" autocomplete="off" title="Must be a letter!"
+                    required>
+                <button type="submit">Guess</button> {{#word}}
+                <h2>{{#message}}{{.}}{{/message}}</h2>
+            </form>
+            <div class="wrong-guesses">
+                <h2 class="wrong">Wrong Guesses:</h2>
+                <p class="wrong-letter">{{#wrongGuesses}}{{.}}&nbsp;{{/wrongGuesses}}</p>
+            </div>
+            
+            <p class="no-guess">{{^wrongGuesses}} No Guesses Yet {{/wrongGuesses}}</p>
+            {{#turns}}<h2 class="turns">Turns Left: {{.}}</h2>{{/turns}}
+            
+        </div>
+    </div>
+    {{/word}}
+</body>
+
+</html>
