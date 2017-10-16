@@ -13,9 +13,8 @@ body {
 .newgame {
     border: 2px solid black;
     text-decoration: none;
-    background-color: red;
-    font-size: 20px;
-    color: white;
+    font-size: 30px;
+    color: black;
     font-weight: bold;
     padding: 9px;
 }
